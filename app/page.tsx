@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
+import { GET } from "./api/articles/route";
 
 export default async function Home() {
-  const data = await fetch("http://localhost:3000/api/articles").then((res) => res.json());
+  const response = await GET();
+  const data = await response.json();
   return (
     <>
       <h1 className="text-3xl font-bold underline">Hello world!</h1>
