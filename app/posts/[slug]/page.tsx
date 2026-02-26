@@ -1,23 +1,21 @@
-import { format, parseISO } from 'date-fns'
-import { allPosts } from 'contentlayer/generated'
+import { format, parseISO } from 'date-fns';
+import { allPosts } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 
 export const generateStaticParams = async () =>
-  allPosts
-    .map((post) => ({ slug: post._raw.flattenedPath }))
-    .filter((p) => p.slug); // remover posts sem slug (caso haja algum erro de configuração do Contentlayer)
+  allPosts.map((post) => ({ slug: post._raw.flattenedPath })).filter((p) => p.slug); // remover posts sem slug (caso haja algum erro de configuração do Contentlayer)
 
-export const generateMetadata = async ({params}: {params: Promise<{ slug: string }>}) => {
-  let slug = await params.then(p => p.slug)
-  const post = allPosts.find((post) => post._raw.flattenedPath === slug)
-  if (!post) notFound()
-  return { title: post.title }
-}
+export const generateMetadata = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  let slug = await params.then((p) => p.slug);
+  const post = allPosts.find((post) => post._raw.flattenedPath === slug);
+  if (!post) notFound();
+  return { title: post.title };
+};
 
-const PostLayout = async ({params}: {params: Promise<{ slug: string }>}) => {
-  let slug = await params.then(p => p.slug)
-  const post = allPosts.find((post) => post._raw.flattenedPath === slug)
-  if (!post) notFound()
+const PostLayout = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  let slug = await params.then((p) => p.slug);
+  const post = allPosts.find((post) => post._raw.flattenedPath === slug);
+  if (!post) notFound();
 
   return (
     <article className="mx-auto max-w-xl py-8">
@@ -27,9 +25,12 @@ const PostLayout = async ({params}: {params: Promise<{ slug: string }>}) => {
         </time>
         <h1 className="text-3xl font-bold">{post.title}</h1>
       </div>
-      <div className="[&>*]:mb-3 [&>*:last-child]:mb-0" dangerouslySetInnerHTML={{ __html: post.body.html }} />
+      <div
+        className="[&>*]:mb-3 [&>*:last-child]:mb-0"
+        dangerouslySetInnerHTML={{ __html: post.body.html }}
+      />
     </article>
-  )
-}
+  );
+};
 
-export default PostLayout
+export default PostLayout;
