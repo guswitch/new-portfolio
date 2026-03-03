@@ -1,7 +1,11 @@
 import { ExternalLink, Github } from 'lucide-react';
 import Image from 'next/image';
 
+import { useTranslations } from 'next-intl';
+
 export function Projects() {
+  const t = useTranslations('Projects');
+
   const projects = [
     {
       title: 'E-Commerce Platform',
@@ -39,10 +43,10 @@ export function Projects() {
     <section id="projects" className="py-24 px-4">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-20">
-          <h2 className="mb-6 text-4xl md:text-5xl tracking-tight">Featured Projects</h2>
+          <h2 className="mb-6 text-4xl md:text-5xl tracking-tight">{t('heading')}</h2>
           <div className="w-16 h-px bg-gray-900 dark:bg-gray-100 mx-auto mb-8"></div>
           <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
-            Here are some of my recent projects that showcase my skills and experience
+            {t('paragraph')}
           </p>
         </div>
 
@@ -86,7 +90,7 @@ export function Projects() {
                     className="text-sm flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
                   >
                     <Github className="size-4" strokeWidth={1.5} />
-                    View Code
+                    {t('viewCode')}
                   </a>
                   <a
                     href={project.demo}
@@ -95,7 +99,7 @@ export function Projects() {
                     className="text-sm flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
                   >
                     <ExternalLink className="size-4" strokeWidth={1.5} />
-                    Live Demo
+                    {t('liveDemo')}
                   </a>
                 </div>
               </div>

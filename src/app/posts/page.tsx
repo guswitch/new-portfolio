@@ -7,7 +7,7 @@ import {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
-} from '@/components/ui/carousel';
+} from '@/src/components/ui/carousel';
 
 // componente de carrossel em cliente; o `map` dos slides fica com você
 function PostsCarousel() {

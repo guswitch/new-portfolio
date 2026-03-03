@@ -2,8 +2,11 @@ import { Mail, MapPin, Phone, Send } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
+import { useTranslations } from 'next-intl';
 
 export function Contact() {
+  const t = useTranslations('Contact');
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Handle form submission
@@ -14,10 +17,10 @@ export function Contact() {
     <section id="contact" className="py-24 px-4">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-20">
-          <h2 className="mb-6 text-4xl md:text-5xl tracking-tight">Get In Touch</h2>
+          <h2 className="mb-6 text-4xl md:text-5xl tracking-tight">{t('heading')}</h2>
           <div className="w-16 h-px bg-gray-900 dark:bg-gray-100 mx-auto mb-8"></div>
           <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? Feel free to reach out!
+            {t('paragraph')}
           </p>
         </div>
 
@@ -28,7 +31,7 @@ export function Contact() {
                 <div className="flex items-center gap-3 mb-2">
                   <Mail className="size-5 text-gray-600 dark:text-gray-400" strokeWidth={1.5} />
                   <span className="text-sm text-gray-500 dark:text-gray-500 tracking-wider">
-                    EMAIL
+                    {t('emailLabel')}
                   </span>
                 </div>
                 <a
@@ -43,7 +46,7 @@ export function Contact() {
                 <div className="flex items-center gap-3 mb-2">
                   <Phone className="size-5 text-gray-600 dark:text-gray-400" strokeWidth={1.5} />
                   <span className="text-sm text-gray-500 dark:text-gray-500 tracking-wider">
-                    PHONE
+                    {t('phoneLabel')}
                   </span>
                 </div>
                 <a
@@ -58,7 +61,7 @@ export function Contact() {
                 <div className="flex items-center gap-3 mb-2">
                   <MapPin className="size-5 text-gray-600 dark:text-gray-400" strokeWidth={1.5} />
                   <span className="text-sm text-gray-500 dark:text-gray-500 tracking-wider">
-                    LOCATION
+                    {t('locationLabel')}
                   </span>
                 </div>
                 <p className="text-gray-900 dark:text-gray-100">San Francisco, CA</p>
@@ -67,8 +70,7 @@ export function Contact() {
 
             <div className="mt-12 p-8 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
               <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                I'm always interested in hearing about new projects and opportunities. Whether you
-                have a question or just want to say hi, I'll try my best to get back to you!
+                {t('footer')}
               </p>
             </div>
           </div>
@@ -76,21 +78,27 @@ export function Contact() {
           <div>
             <form className="space-y-6">
               <div>
-                <Input id="name" placeholder="Name" required className="h-12" />
+                <Input id="name" placeholder={t('form.name')} required className="h-12" />
               </div>
 
               <div>
-                <Input id="email" type="email" placeholder="Email" required className="h-12" />
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder={t('form.email')}
+                  required
+                  className="h-12"
+                />
               </div>
 
               <div>
-                <Input id="subject" placeholder="Subject" required className="h-12" />
+                <Input id="subject" placeholder={t('form.subject')} required className="h-12" />
               </div>
 
               <div>
                 <Textarea
                   id="message"
-                  placeholder="Message"
+                  placeholder={t('form.message')}
                   rows={6}
                   required
                   className="resize-none"
@@ -98,7 +106,7 @@ export function Contact() {
               </div>
 
               <Button type="submit" className="w-full h-12">
-                Send Message
+                {t('form.send')}
               </Button>
             </form>
           </div>

@@ -1,21 +1,24 @@
 import { Badge } from './ui/badge';
+import { useTranslations } from 'next-intl';
 
 export function Skills() {
+  const t = useTranslations('Skills');
+
   const skillCategories = [
     {
-      category: 'Frontend',
+      category: t('categories.frontend'),
       skills: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Vue.js', 'Redux'],
     },
     {
-      category: 'Backend',
+      category: t('categories.backend'),
       skills: ['Node.js', 'Python', 'Express', 'Django', 'PostgreSQL', 'MongoDB'],
     },
     {
-      category: 'DevOps & Tools',
+      category: t('categories.devops'),
       skills: ['AWS', 'Docker', 'Kubernetes', 'Git', 'CI/CD', 'Linux'],
     },
     {
-      category: 'Other',
+      category: t('categories.other'),
       skills: ['GraphQL', 'REST APIs', 'WebSockets', 'Testing', 'Agile', 'Microservices'],
     },
   ];
@@ -24,17 +27,19 @@ export function Skills() {
     <section id="skills" className="py-24 px-4 bg-white dark:bg-black">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-20">
-          <h2 className="mb-6 text-4xl md:text-5xl tracking-tight">Skills & Technologies</h2>
+          <h2 className="mb-6 text-4xl md:text-5xl tracking-tight">{t('heading')}</h2>
           <div className="w-16 h-px bg-gray-900 dark:bg-gray-100 mx-auto mb-8"></div>
           <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
-            A comprehensive toolkit for building modern, scalable applications
+            {t('paragraph')}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {skillCategories.map((category, index) => (
             <div key={index}>
-              <h3 className="text-sm tracking-wider mb-6 text-gray-500 dark:text-gray-500">{category.category}</h3>
+              <h3 className="text-sm tracking-wider mb-6 text-gray-500 dark:text-gray-500">
+                {category.category}
+              </h3>
               <div className="flex flex-wrap gap-3">
                 {category.skills.map((skill, skillIndex) => (
                   <span

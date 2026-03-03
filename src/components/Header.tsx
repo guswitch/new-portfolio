@@ -1,12 +1,15 @@
-"use client";
+'use client';
 
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
+import { LanguageSwitcher } from './LanguageSwitcher';
+import { useTranslations } from 'next-intl';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const t = useTranslations('Header');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,11 +21,11 @@ export function Header() {
   }, []);
 
   const navItems = [
-    { label: 'About', href: '#about' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Contact', href: '#contact' },
+    { label: t('about'), href: '#about' },
+    { label: t('skills'), href: '#skills' },
+    { label: t('projects'), href: '#projects' },
+    { label: t('experience'), href: '#experience' },
+    { label: t('contact'), href: '#contact' },
   ];
 
   const handleNavClick = (href: string) => {
@@ -36,7 +39,9 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white/95 dark:bg-black/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800' : 'bg-transparent'
+        isScrolled
+          ? 'bg-white/95 dark:bg-black/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800'
+          : 'bg-transparent'
       }`}
     >
       <nav className="max-w-6xl mx-auto px-4 py-6">
@@ -67,11 +72,13 @@ export function Header() {
                 {item.label}
               </a>
             ))}
+            <LanguageSwitcher />
             <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center gap-4">
+            <LanguageSwitcher />
             <ThemeToggle />
             <button
               className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
@@ -88,7 +95,7 @@ export function Header() {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-6 pt-6 border-t border-gray-200 dark:border-gray-800 space-y-4">
+          <div className="md:hidden mt-6 pt-6 border-t border-gray-200 dark:border-gray-800 space-y-4 bg-white dark:bg-black">
             {navItems.map((item) => (
               <a
                 key={item.href}

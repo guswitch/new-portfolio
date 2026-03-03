@@ -1,0 +1,77 @@
+{
+  "Header": {
+    "about": "Sobre",
+    "skills": "Habilidades",
+    "projects": "Projetos",
+    "experience": "Experiência",
+    "contact": "Contato"
+  },
+  "Hero": {
+    "tagLine": "ENGENHEIRO DE SOFTWARE FULL-STACK",
+    "name": "Alex Chen",
+    "description": "Eu construo experiências digitais excepcionais que combinam código limpo com design intuitivo. Especializado em React, Node.js e arquitetura de nuvem.",
+    "getInTouch": "Entrar em Contato",
+    "viewProjects": "Ver Projetos",
+    "arrowAlt": "Descer"
+  },
+  "About": {
+    "heading": "Sobre Mim",
+    "paragraph": "Sou um engenheiro de software apaixonado com mais de 5 anos de experiência construindo aplicações web escaláveis. Adoro transformar problemas complexos em soluções simples, bonitas e intuitivas.",
+    "highlights": {
+      "frontend": {
+        "title": "Desenvolvimento Frontend",
+        "description": "Especialista em React, TypeScript e tecnologias web modernas"
+      },
+      "backend": {
+        "title": "Desenvolvimento Backend",
+        "description": "Proficiente em Node.js, Python e design de banco de dados"
+      },
+      "cloud": {
+        "title": "Arquitetura de Nuvem",
+        "description": "Experiência com AWS, Azure e sistemas escaláveis"
+      },
+      "design": {
+        "title": "UI/UX Design",
+        "description": "Olhar atento para design e experiência do usuário"
+      }
+    }
+  },
+  "Skills": {
+    "heading": "Habilidades & Tecnologias",
+    "paragraph": "Um conjunto completo de ferramentas para construir aplicações modernas e escaláveis",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps & Ferramentas",
+      "other": "Outros"
+    }
+  },
+  "Projects": {
+    "heading": "Projetos em Destaque",
+    "paragraph": "Aqui estão alguns dos meus projetos recentes que mostram minhas habilidades e experiência",
+    "viewCode": "Ver Código",
+    "liveDemo": "Demo Ao Vivo"
+  },
+  "Experience": {
+    "heading": "Experiência"
+  },
+  "Contact": {
+    "heading": "Entrar em Contato",
+    "paragraph": "Tem um projeto em mente ou quer colaborar? Fique à vontade para entrar em contato!",
+    "emailLabel": "EMAIL",
+    "phoneLabel": "TELEFONE",
+    "locationLabel": "LOCALIZAÇÃO",
+    "footer": "Estou sempre interessado em ouvir sobre novos projetos e oportunidades. Seja você tenha uma pergunta ou apenas queira dizer oi, farei o meu melhor para responder!",
+    "form": {
+      "name": "Nome",
+      "email": "Email",
+      "subject": "Assunto",
+      "message": "Mensagem",
+      "send": "Enviar Mensagem"
+    }
+  },
+  "Posts": {
+    "title": "Posts em Destaque",
+    "readMore": "Leia Mais"
+  }
+}

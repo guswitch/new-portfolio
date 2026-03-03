@@ -1,6 +1,10 @@
 import { Briefcase, GraduationCap } from 'lucide-react';
 
+import { useTranslations } from 'next-intl';
+
 export function Experience() {
+  const t = useTranslations('Experience');
+
   const experiences = [
     {
       type: 'work',
@@ -40,28 +44,41 @@ export function Experience() {
     <section id="experience" className="py-24 px-4 bg-white dark:bg-black">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-20">
-          <h2 className="mb-6 text-4xl md:text-5xl tracking-tight">Experience</h2>
+          <h2 className="mb-6 text-4xl md:text-5xl tracking-tight">{t('heading')}</h2>
           <div className="w-16 h-px bg-gray-900 dark:bg-gray-100 mx-auto"></div>
         </div>
 
         <div className="space-y-16">
           {experiences.map((item, index) => (
-            <div key={index} className="relative pl-12 border-l border-gray-300 dark:border-gray-700">
+            <div
+              key={index}
+              className="relative pl-12 border-l border-gray-300 dark:border-gray-700"
+            >
               <div className="absolute left-0 top-0 -translate-x-1/2 w-6 h-6 bg-white dark:bg-black border border-gray-300 dark:border-gray-700 rounded-full flex items-center justify-center">
                 {item.type === 'work' ? (
-                  <Briefcase className="size-3 text-gray-600 dark:text-gray-400" strokeWidth={1.5} />
+                  <Briefcase
+                    className="size-3 text-gray-600 dark:text-gray-400"
+                    strokeWidth={1.5}
+                  />
                 ) : (
-                  <GraduationCap className="size-3 text-gray-600 dark:text-gray-400" strokeWidth={1.5} />
+                  <GraduationCap
+                    className="size-3 text-gray-600 dark:text-gray-400"
+                    strokeWidth={1.5}
+                  />
                 )}
               </div>
               <div className="mb-3">
                 <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-2">
                   <h3 className="text-xl">{item.title}</h3>
-                  <span className="text-xs text-gray-500 dark:text-gray-500 tracking-wider mt-1">{item.period}</span>
+                  <span className="text-xs text-gray-500 dark:text-gray-500 tracking-wider mt-1">
+                    {item.period}
+                  </span>
                 </div>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">{item.organization}</p>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{item.description}</p>
+              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+                {item.description}
+              </p>
             </div>
           ))}
         </div>

@@ -1,0 +1,77 @@
+{
+  "Header": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "tagLine": "FULL-STACK SOFTWARE ENGINEER",
+    "name": "Alex Chen",
+    "description": "I build exceptional digital experiences that combine clean code with intuitive design. Specializing in React, Node.js, and cloud architecture.",
+    "getInTouch": "Get In Touch",
+    "viewProjects": "View Projects",
+    "arrowAlt": "Scroll down"
+  },
+  "About": {
+    "heading": "About Me",
+    "paragraph": "I'm a passionate software engineer with 5+ years of experience building scalable web applications. I love turning complex problems into simple, beautiful, and intuitive solutions.",
+    "highlights": {
+      "frontend": {
+        "title": "Frontend Development",
+        "description": "Expert in React, TypeScript, and modern web technologies"
+      },
+      "backend": {
+        "title": "Backend Development",
+        "description": "Proficient in Node.js, Python, and database design"
+      },
+      "cloud": {
+        "title": "Cloud Architecture",
+        "description": "Experience with AWS, Azure, and scalable systems"
+      },
+      "design": {
+        "title": "UI/UX Design",
+        "description": "Strong eye for design and user experience"
+      }
+    }
+  },
+  "Skills": {
+    "heading": "Skills & Technologies",
+    "paragraph": "A comprehensive toolkit for building modern, scalable applications",
+    "categories": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "devops": "DevOps & Tools",
+      "other": "Other"
+    }
+  },
+  "Projects": {
+    "heading": "Featured Projects",
+    "paragraph": "Here are some of my recent projects that showcase my skills and experience",
+    "viewCode": "View Code",
+    "liveDemo": "Live Demo"
+  },
+  "Experience": {
+    "heading": "Experience"
+  },
+  "Contact": {
+    "heading": "Get In Touch",
+    "paragraph": "Have a project in mind or want to collaborate? Feel free to reach out!",
+    "emailLabel": "EMAIL",
+    "phoneLabel": "PHONE",
+    "locationLabel": "LOCATION",
+    "footer": "I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send Message"
+    }
+  },
+  "Posts": {
+    "title": "Featured Posts",
+    "readMore": "Read More"
+  }
+}
