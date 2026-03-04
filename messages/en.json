@@ -7,9 +7,9 @@
     "contact": "Contact"
   },
   "Hero": {
-    "tagLine": "FULL-STACK SOFTWARE ENGINEER",
-    "name": "Alex Chen",
-    "description": "I build exceptional digital experiences that combine clean code with intuitive design. Specializing in React, Node.js, and cloud architecture.",
+    "tagLine": "SOFTWARE ENGINEER",
+    "name": "Gustavo Nicolau",
+    "description": "I merge technology and creativity to build immersive and functional digital experiences. Working with React, Node.js, and modern performance-driven architecture.",
     "getInTouch": "Get In Touch",
     "viewProjects": "View Projects",
     "arrowAlt": "Scroll down"

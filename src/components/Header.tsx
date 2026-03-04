@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { useTranslations } from 'next-intl';
+import Logo from './Logo';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -54,7 +55,7 @@ export function Header() {
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
           >
-            Alex Chen
+            <Logo />
           </a>
 
           {/* Desktop Navigation */}
@@ -67,7 +68,7 @@ export function Header() {
                   e.preventDefault();
                   handleNavClick(item.href);
                 }}
-                className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors font-space-grotesk"
               >
                 {item.label}
               </a>
@@ -104,7 +105,7 @@ export function Header() {
                   e.preventDefault();
                   handleNavClick(item.href);
                 }}
-                className="block text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                className="block text-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors font-space-grotesk pl-3 pb-2"
               >
                 {item.label}
               </a>
