@@ -17,30 +17,10 @@ export function Projects() {
       github: 'https://github.com',
       demo: 'https://example.com',
     },
-    {
-      title: 'Analytics Dashboard',
-      description:
-        'Real-time analytics dashboard with interactive charts, data visualization, and custom reporting features. Processes millions of events daily.',
-      image:
-        'https://images.unsplash.com/photo-1771923082503-0a3381c46cef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWIlMjBhcHBsaWNhdGlvbiUyMGRhc2hib2FyZCUyMGludGVyZmFjZXxlbnwxfHx8fDE3NzIwMzMzMjB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      tags: ['TypeScript', 'React', 'D3.js', 'AWS'],
-      github: 'https://github.com',
-      demo: 'https://example.com',
-    },
-    {
-      title: 'Mobile Fitness App',
-      description:
-        'Cross-platform fitness tracking app with workout plans, progress tracking, and social features. Over 50k active users.',
-      image:
-        'https://images.unsplash.com/photo-1707836868495-3307d371aba4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ24lMjBtb2NrdXB8ZW58MXx8fHwxNzcyMTE1OTEwfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      tags: ['React Native', 'Firebase', 'Redux', 'GraphQL'],
-      github: 'https://github.com',
-      demo: 'https://example.com',
-    },
   ];
 
   return (
-    <section id="projects" className="py-24 px-4">
+    <section id="projects" data-index="2" className="min-h-screen py-24 px-4 snap-start">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="mb-6 text-4xl md:text-5xl tracking-tight">{t('heading')}</h2>

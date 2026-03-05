@@ -37,7 +37,7 @@
     }
   },
   "Skills": {
-    "heading": "Skills & Technologies",
+    "heading": "Skills",
     "paragraph": "A comprehensive toolkit for building modern, scalable applications",
     "categories": {
       "frontend": "Frontend",

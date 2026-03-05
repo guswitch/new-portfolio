@@ -10,15 +10,15 @@ import { Experience } from '@/src/components/Experience';
 import { Footer } from '@/src/components/Footer';
 import { Header } from '@/src/components/Header';
 import { Posts } from '@/src/components/Posts';
+import SectionNav from '@/src/components/SectionNav';
 
 export default async function Home() {
   return (
     <>
-      <div className="min-h-screen">
+      <div className="h-screen overflow-y-scroll overflow-x-hidden snap-y snap-mandatory scroll-smooth">
         <Header />
         <main className="pt-20">
           <Hero />
-          <About />
           <Skills />
           <Projects />
           <Posts />
@@ -26,6 +26,7 @@ export default async function Home() {
           <Contact />
         </main>
         <Footer />
+        <SectionNav />
       </div>
     </>
   );

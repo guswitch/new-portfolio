@@ -24,7 +24,7 @@ export default function MorphBackground() {
   }, []);
 
   return (
-    <div className="w-screen h-screen absolute top-0 left-0 overflow-hidden pointer-events-none inset-0">
+    <div className="w-screen h-screen absolute top-0 left-0 overflow-hidden repeat-0 pointer-events-none inset-0">
       <motion.svg viewBox={`0 0 ${size} ${size}`} className="absolute inset-0 w-screen h-screen">
         {/* Horizontais */}
         {horizontalLines.map((i) => {

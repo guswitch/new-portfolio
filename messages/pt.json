@@ -37,7 +37,7 @@
     }
   },
   "Skills": {
-    "heading": "Habilidades & Tecnologias",
+    "heading": "Habilidades",
     "paragraph": "Um conjunto completo de ferramentas para construir aplicações modernas e escaláveis",
     "categories": {
       "frontend": "Frontend",

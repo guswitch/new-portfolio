@@ -14,7 +14,11 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 px-4">
+    <section
+      id="contact"
+      data-index="5"
+      className="py-24 px-4 h-screen bg-white dark:bg-black snap-start"
+    >
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="mb-6 text-4xl md:text-5xl tracking-tight">{t('heading')}</h2>

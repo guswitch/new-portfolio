@@ -1,6 +1,8 @@
 import { Badge } from './ui/badge';
 import { useTranslations } from 'next-intl';
 
+// ref https://dribbble.com/shots/26368138-Skills-Section-UI-design
+
 export function Skills() {
   const t = useTranslations('Skills');
 
@@ -24,12 +26,18 @@ export function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-24 px-4 bg-white dark:bg-black">
+    <section
+      id="skills"
+      data-index="1"
+      className="h-screen py-24 px-4 bg-white dark:bg-black snap-start"
+    >
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-20">
-          <h2 className="mb-6 text-4xl md:text-5xl tracking-tight">{t('heading')}</h2>
+          <h2 className="mb-6 text-5xl md:text-6xl tracking-tight font-anton uppercase">
+            {t('heading')}
+          </h2>
           <div className="w-16 h-px bg-gray-900 dark:bg-gray-100 mx-auto mb-8"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto font-space-grotesk">
             {t('paragraph')}
           </p>
         </div>

@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html suppressHydrationWarning>
-      <body>
+      <body className="overflow-hidden">
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>

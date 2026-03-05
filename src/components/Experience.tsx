@@ -41,7 +41,7 @@ export function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-24 px-4 bg-white dark:bg-black">
+    <section id="experience" data-index="4" className="py-24 px-4 h-screen snap-start">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="mb-6 text-4xl md:text-5xl tracking-tight">{t('heading')}</h2>
@@ -54,7 +54,7 @@ export function Experience() {
               key={index}
               className="relative pl-12 border-l border-gray-300 dark:border-gray-700"
             >
-              <div className="absolute left-0 top-0 -translate-x-1/2 w-6 h-6 bg-white dark:bg-black border border-gray-300 dark:border-gray-700 rounded-full flex items-center justify-center">
+              <div className="absolute left-0 top-0 -translate-x-1/2 w-6 h-6  border border-gray-300 dark:border-gray-700 rounded-full flex items-center justify-center">
                 {item.type === 'work' ? (
                   <Briefcase
                     className="size-3 text-gray-600 dark:text-gray-400"
