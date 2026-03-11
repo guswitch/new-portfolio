@@ -7,6 +7,7 @@ import { LanguageSwitcher } from './LanguageSwitcher';
 import { useTranslations } from 'next-intl';
 import Logo from './Logo';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getLenis } from '../lib/lenis';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,10 +33,14 @@ export function Header() {
 
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    const lenis = getLenis();
+
+    if (!lenis) return;
+
+    lenis.scrollTo(href, {
+      duration: 1.4,
+      offset: -80,
+    });
   };
 
   return (
@@ -43,7 +48,7 @@ export function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
           ? 'bg-white/95 dark:bg-black backdrop-blur-sm border-b border-gray-200 dark:border-gray-800'
-          : ' dark:bg-black'
+          : ' bg-white/95 dark:bg-black'
       }`}
     >
       <nav className="max-w-6xl mx-auto px-4 py-6">

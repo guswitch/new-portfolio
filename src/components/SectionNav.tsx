@@ -27,6 +27,7 @@ export default function SectionNav() {
       },
       {
         threshold: 0.6,
+        rootMargin: '-10% 0px -10% 0px',
       }
     );
 
@@ -38,17 +39,19 @@ export default function SectionNav() {
   function scrollToSection(index: number) {
     sections[index]?.scrollIntoView({
       behavior: 'smooth',
+      block: 'start',
     });
   }
 
   return (
-    <div className="fixed right-8 top-1/2 -translate-y-1/2 flex flex-col gap-4 z-50">
+    <div className="fixed left-1/2 -bottom-1 -translate-x-1/2 -translate-y-1/2 flex flex-row gap-4 z-50 ">
       {Array.from({ length: sections.length }).map((_, i) => (
         <button
           key={i}
           onClick={() => scrollToSection(i)}
           className={`
-            w-3 h-3 border 
+            cursor-pointer
+            w-5 h-2 border 
             border-neutral-900 
             dark:border-neutral-200
             transition-all duration-300

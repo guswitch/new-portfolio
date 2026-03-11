@@ -15,19 +15,17 @@ import SectionNav from '@/src/components/SectionNav';
 export default async function Home() {
   return (
     <>
-      <div className="h-screen overflow-y-scroll overflow-x-hidden snap-y snap-mandatory scroll-smooth">
-        <Header />
-        <main className="pt-20">
-          <Hero />
-          <Skills />
-          <Projects />
-          <Posts />
-          <Experience />
-          <Contact />
-        </main>
-        <Footer />
-        <SectionNav />
-      </div>
+      <Header />
+      <main className="pt-20">
+        <Hero />
+        <Skills />
+        <Projects />
+        <Posts />
+        <Experience />
+        <Contact />
+      </main>
+      <Footer />
+      <SectionNav />
     </>
   );
 }

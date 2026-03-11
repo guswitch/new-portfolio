@@ -1,3 +1,4 @@
+@import 'tailwindcss';
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -124,6 +125,9 @@
     @apply border-border outline-ring/50;
   }
 
+  html {
+    @apply overflow-x-hidden;
+  }
   body {
     @apply bg-background text-foreground overflow-x-hidden;
   }
@@ -178,14 +182,4 @@
     font-weight: var(--font-weight-normal);
     line-height: 1.5;
   }
-}
-
-/* Chrome, Safari, Edge */
-::-webkit-scrollbar {
-  display: none;
-}
-
-/* Firefox */
-* {
-  scrollbar-width: none;
 }

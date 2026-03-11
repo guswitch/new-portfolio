@@ -1,90 +1,97 @@
-import { ExternalLink, Github } from 'lucide-react';
-import Image from 'next/image';
+'use client';
 
 import { useTranslations } from 'next-intl';
+import { useState } from 'react';
+import { Project } from '../types/project';
+import { ProjectPopover } from './ProjectPopover';
+import { ProjectCard } from './ProjectCard';
 
 export function Projects() {
   const t = useTranslations('Projects');
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const projects = [
     {
-      title: 'E-Commerce Platform',
+      id: 1,
+      title: 'AI Stem Separator',
       description:
-        'A full-featured e-commerce platform with real-time inventory, payment processing, and admin dashboard. Built with React, Node.js, and PostgreSQL.',
-      image:
-        'https://images.unsplash.com/photo-1658297063569-162817482fb6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjBzaG9wcGluZyUyMHdlYnNpdGV8ZW58MXx8fHwxNzcyMDQxNTIyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral',
-      tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
-      github: 'https://github.com',
-      demo: 'https://example.com',
+        'Web tool that separates music stems using AI models and detects BPM and musical key automatically.',
+      tech: ['Next.js', 'Node.js', 'Demucs', 'Tailwind'],
+      github: '#',
+      live: '#',
+    },
+    {
+      id: 2,
+      title: 'Audio BPM & Key Detector',
+      description:
+        'Audio analysis tool that identifies BPM and key signature from uploaded tracks using signal processing algorithms.',
+      tech: ['TypeScript', 'Web Audio API', 'DSP', 'Next.js'],
+      github: '#',
+      live: '#',
+    },
+    {
+      id: 3,
+      title: '3D Interactive Portfolio',
+      description:
+        'Personal portfolio built with WebGL featuring interactive 3D elements and animated UI components.',
+      tech: ['React', 'Three.js', 'Framer Motion', 'Tailwind'],
+      github: '#',
+      live: '#',
+    },
+    {
+      id: 4,
+      title: 'Beat Marketplace',
+      description:
+        'Marketplace platform where producers can upload, preview and sell beats with waveform visualization.',
+      tech: ['Next.js', 'Stripe', 'PostgreSQL', 'Tailwind'],
+      github: '#',
+      live: '#',
+    },
+    {
+      id: 5,
+      title: 'AI Sound Texture Generator',
+      description:
+        'Experimental tool that generates unique sound textures using AI and procedural synthesis.',
+      tech: ['Python', 'TensorFlow', 'WebSockets', 'React'],
+      github: '#',
+      live: '#',
+    },
+    {
+      id: 6,
+      title: 'Music Visualization Engine',
+      description:
+        'Real-time audio visualizer that reacts to frequency spectrum using WebGL shaders.',
+      tech: ['Three.js', 'Web Audio API', 'GLSL', 'React'],
+      github: '#',
+      live: '#',
     },
   ];
 
   return (
-    <section id="projects" className="min-h-screen py-24 px-4 snap-start">
+    <section id="projects" className="min-h-screen py-24 px-4">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="mb-6 text-4xl md:text-5xl tracking-tight">{t('heading')}</h2>
-          <div className="w-16 h-px bg-gray-900 dark:bg-gray-100 mx-auto mb-8"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
+        <div className="mb-20 ml-auto text-right">
+          <h2 className="mb-4 text-6xl md:text-7xl tracking-tight uppercase font-anton">
+            {t('heading')}
+          </h2>
+          <div className="w-full h-px bg-gray-900 dark:bg-gray-100 mb-8"></div>
+          <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed text-right">
             {t('paragraph')}
           </p>
         </div>
 
         <div className="space-y-24">
-          {projects.map((project, index) => (
-            <div key={index} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                <div className="aspect-4/3 bg-gray-100 dark:bg-gray-900 overflow-hidden">
-                  <Image
-                    width={500}
-                    height={375}
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              </div>
-              <div className={index % 2 === 1 ? 'lg:order-1' : ''}>
-                <div className="inline-block text-xs tracking-wider text-gray-500 dark:text-gray-500 mb-4">
-                  0{index + 1}
-                </div>
-                <h3 className="text-2xl md:text-3xl mb-4 tracking-tight">{project.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="text-xs px-3 py-1 border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-400"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex gap-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
-                  >
-                    <Github className="size-4" strokeWidth={1.5} />
-                    {t('viewCode')}
-                  </a>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
-                  >
-                    <ExternalLink className="size-4" strokeWidth={1.5} />
-                    {t('liveDemo')}
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map((project) => (
+              <ProjectCard key={project.id} project={project} onOpen={setSelectedProject} />
+            ))}
+          </div>
+
+          <ProjectPopover
+            project={selectedProject as Project}
+            open={!!selectedProject}
+            setOpen={() => setSelectedProject(null)}
+          />
         </div>
       </div>
     </section>

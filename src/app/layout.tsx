@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
+import { SmoothScroll } from '../components/SmoothScroll';
 import '@/src/styles/index.css';
 
 export const metadata: Metadata = {
@@ -14,7 +15,8 @@ export default function RootLayout({
 }>) {
   return (
     <html suppressHydrationWarning>
-      <body className="overflow-hidden">
+      <body>
+        <SmoothScroll />
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>

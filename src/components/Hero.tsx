@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen px-4 py-24 snap-start relative flex items-center justify-center"
+      className="min-h-screen px-4 py-24 relative flex items-center justify-center"
     >
       <MorphBackground />
       <div className="flex-col items-center justify-center relative max-w-5xl mx-auto">
