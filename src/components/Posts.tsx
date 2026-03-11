@@ -12,11 +12,7 @@ import { PostCard } from './PostCard';
 export function Posts() {
   const posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
   return (
-    <section
-      id="posts"
-      data-index="3"
-      className="h-screen py-24 px-4 bg-white dark:bg-black snap-start"
-    >
+    <section id="posts" className="h-screen py-24 px-4 bg-white dark:bg-black snap-start">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="mb-6 text-4xl md:text-5xl tracking-tight">Posts</h2>

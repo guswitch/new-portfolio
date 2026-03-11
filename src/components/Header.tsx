@@ -6,6 +6,7 @@ import { ThemeToggle } from './ThemeToggle';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { useTranslations } from 'next-intl';
 import Logo from './Logo';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,7 +23,7 @@ export function Header() {
   }, []);
 
   const navItems = [
-    { label: t('about'), href: '#about' },
+    { label: t('about'), href: '#hero' },
     { label: t('skills'), href: '#skills' },
     { label: t('projects'), href: '#projects' },
     { label: t('experience'), href: '#experience' },
@@ -95,23 +96,31 @@ export function Header() {
         </div>
 
         {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-6 pt-6 border-t border-gray-200 dark:border-gray-800 space-y-4 bg-white dark:bg-black">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleNavClick(item.href);
-                }}
-                className="block text-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors font-space-grotesk pl-3 pb-2"
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-        )}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className="md:hidden mt-6 pt-6 border-t border-gray-200 dark:border-gray-800 space-y-4 bg-white dark:bg-black"
+            >
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    handleNavClick(item.href);
+                  }}
+                  className="block text-md text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors font-space-grotesk pl-3 pb-2"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </header>
   );

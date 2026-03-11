@@ -1,65 +1,107 @@
-import { Badge } from './ui/badge';
-import { useTranslations } from 'next-intl';
+'use client';
 
-// ref https://dribbble.com/shots/26368138-Skills-Section-UI-design
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Plus } from 'lucide-react';
+import { useT } from '../utils/translations';
+
+const skills = [
+  {
+    title: 'Full Stack Development',
+    content:
+      'TypeScript, JavaScript, React, Next.js, Node.js, NestJS, REST APIs, GraphQL, HTML, CSS / Sass',
+  },
+  {
+    title: 'Data & State Management',
+    content: 'MySQL, NoSQL, Firebase, PostgreSQL, Redis',
+  },
+  {
+    title: 'DevOps & Infrastructure',
+    content: 'Docker, Vercel, Azure, Cloud Services',
+  },
+  {
+    title: 'Testing',
+    content: 'Jest, Cypress',
+  },
+  {
+    title: 'Software Engineering',
+    content: 'Clean Code, OOP, Agile Methodologies, Code Review, Technical Architecture',
+  },
+  {
+    title: 'Artificial Intelligence',
+    content:
+      'Machine Learning Integration, AI APIs (OpenAI / etc), Audio Processing, AI-Assisted Development',
+  },
+];
 
 export function Skills() {
-  const t = useTranslations('Skills');
+  const t = useT('Skills');
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const skillCategories = [
-    {
-      category: t('categories.frontend'),
-      skills: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'Vue.js', 'Redux'],
-    },
-    {
-      category: t('categories.backend'),
-      skills: ['Node.js', 'Python', 'Express', 'Django', 'PostgreSQL', 'MongoDB'],
-    },
-    {
-      category: t('categories.devops'),
-      skills: ['AWS', 'Docker', 'Kubernetes', 'Git', 'CI/CD', 'Linux'],
-    },
-    {
-      category: t('categories.other'),
-      skills: ['GraphQL', 'REST APIs', 'WebSockets', 'Testing', 'Agile', 'Microservices'],
-    },
-  ];
+  const toggle = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
-    <section
-      id="skills"
-      data-index="1"
-      className="h-screen py-24 px-4 bg-white dark:bg-black snap-start"
-    >
+    <section id="skills" className="min-h-screen py-20 px-4 bg-white dark:bg-black snap-start">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="mb-6 text-5xl md:text-6xl tracking-tight font-anton uppercase">
+        <div className="text-left my-12">
+          <h2 className="mb-4 text-6xl md:text-7xl tracking-tight uppercase font-anton">
             {t('heading')}
           </h2>
-          <div className="w-16 h-px bg-gray-900 dark:bg-gray-100 mx-auto mb-8"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto font-space-grotesk">
-            {t('paragraph')}
-          </p>
         </div>
+        <div className="mt-8">
+          <ol className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {skills.map((skill, index) => {
+              const open = openIndex === index;
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {skillCategories.map((category, index) => (
-            <div key={index}>
-              <h3 className="text-sm tracking-wider mb-6 text-gray-500 dark:text-gray-500">
-                {category.category}
-              </h3>
-              <div className="flex flex-wrap gap-3">
-                {category.skills.map((skill, skillIndex) => (
-                  <span
-                    key={skillIndex}
-                    className="text-sm px-4 py-2 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-gray-900 dark:hover:border-gray-100 transition-colors"
+              return (
+                <li key={index} className="group">
+                  <button
+                    onClick={() => toggle(index)}
+                    className="w-full justify-between items-center text-left cursor-pointer"
                   >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
+                    <div className="flex items-center gap-8">
+                      <motion.span
+                        animate={{ rotate: open ? 45 : 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="text-gray-900 dark:text-gray-100 text-xl"
+                      >
+                        <Plus className="size-7" />
+                      </motion.span>
+                      <h3 className="md:text-lg lg:text-xl font-semibold text-base tracking-wide uppercase">
+                        {skill.title}
+                      </h3>
+                    </div>
+
+                    {/* <motion.span
+                    animate={{ rotate: open ? 45 : 0 }}
+                    transition={{ duration: 0.2 }}
+                    className="text-neutral-500 text-xl"
+                  >
+                    <Plus className="size-7" />
+                  </motion.span> */}
+                  </button>
+
+                  <AnimatePresence>
+                    {open && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0, filter: 'blur(4px)' }}
+                        animate={{ height: 'auto', opacity: 1, filter: 'blur(0px)' }}
+                        exit={{ height: 0, opacity: 0, filter: 'blur(4px)' }}
+                        transition={{ duration: 0.35, ease: 'easeInOut' }}
+                        className="overflow-hidden"
+                      >
+                        <div className="mt-6 text-neutral-700 max-w-xl font-space-grotesk">
+                          {skill.content}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </li>
+              );
+            })}
+          </ol>
         </div>
       </div>
     </section>

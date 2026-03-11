@@ -20,7 +20,7 @@ export function Projects() {
   ];
 
   return (
-    <section id="projects" data-index="2" className="min-h-screen py-24 px-4 snap-start">
+    <section id="projects" className="min-h-screen py-24 px-4 snap-start">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="mb-6 text-4xl md:text-5xl tracking-tight">{t('heading')}</h2>
@@ -34,7 +34,7 @@ export function Projects() {
           {projects.map((project, index) => (
             <div key={index} className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                <div className="aspect-[4/3] bg-gray-100 dark:bg-gray-900 overflow-hidden">
+                <div className="aspect-4/3 bg-gray-100 dark:bg-gray-900 overflow-hidden">
                   <Image
                     width={500}
                     height={375}

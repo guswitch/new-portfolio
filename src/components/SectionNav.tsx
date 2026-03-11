@@ -48,7 +48,7 @@ export default function SectionNav() {
           key={i}
           onClick={() => scrollToSection(i)}
           className={`
-            w-4 h-4 border-2 
+            w-3 h-3 border 
             border-neutral-900 
             dark:border-neutral-200
             transition-all duration-300

@@ -41,7 +41,7 @@ export function Experience() {
   ];
 
   return (
-    <section id="experience" data-index="4" className="py-24 px-4 h-screen snap-start">
+    <section id="experience" className="py-24 px-4 h-screen snap-start">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-20">
           <h2 className="mb-6 text-4xl md:text-5xl tracking-tight">{t('heading')}</h2>

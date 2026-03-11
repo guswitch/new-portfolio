@@ -8,7 +8,7 @@ export function Hero() {
 
   return (
     <section
-      data-index="0"
+      id="hero"
       className="min-h-screen px-4 py-24 snap-start relative flex items-center justify-center"
     >
       <MorphBackground />
@@ -16,7 +16,7 @@ export function Hero() {
         <div className="w-full">
           <div className="w-32 md:w-72 h-px bg-gray-900 dark:bg-gray-100 mb-8"></div>
           <h1 className="mb-8 text-8xl tracking-tight font-anton uppercase">{t('name')}</h1>
-          <div className="inline-block p-2 border border-gray-300 dark:border-gray-700 text-sm tracking-wide">
+          <div className="inline-block p-2 border border-gray-900 dark:border-gray-300 text-sm tracking-wide">
             {t('tagLine')}
           </div>
         </div>
