@@ -53,7 +53,8 @@
     "liveDemo": "Demo Ao Vivo"
   },
   "Experience": {
-    "heading": "Experiência"
+    "heading": "Experiência",
+    "paragraph": "Aqui estão alguns dos meus posts recentes onde compartilho insights e experiências da minha jornada como engenheiro de software"
   },
   "Contact": {
     "heading": "Entrar em Contato",
@@ -71,7 +72,7 @@
     }
   },
   "Posts": {
-    "title": "Posts em Destaque",
-    "readMore": "Leia Mais"
+    "heading": "Posts em Destaque",
+    "paragraph": "Aqui estão alguns dos meus posts recentes onde compartilho insights e experiências da minha jornada como engenheiro de software"
   }
 }

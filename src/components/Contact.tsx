@@ -1,112 +1,153 @@
+'use client';
+
+import { useState } from 'react';
 import { Mail, MapPin, Phone, Send } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { useTranslations } from 'next-intl';
+import { toast } from 'sonner';
 
 export function Contact() {
   const t = useTranslations('Contact');
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission
-    alert('Thanks for reaching out! This is a demo form.');
+    setIsLoading(true);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      subject: formData.get('subject'),
+      message: formData.get('message'),
+    };
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) throw new Error('Failed to send');
+
+      toast.success('Message sent successfully!');
+      e.currentTarget.reset();
+    } catch {
+      toast.error('Failed to send message. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
-    <section id="contact" className="py-24 px-4 min-h-screen bg-white dark:bg-black">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="mb-6 text-4xl md:text-5xl tracking-tight">{t('heading')}</h2>
-          <div className="w-16 h-px bg-gray-900 dark:bg-gray-100 mx-auto mb-8"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
+    <section id="contact" className="py-24 px-4 bg-white dark:bg-black">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-left my-6">
+          <h2 className="mb-4 text-6xl md:text-7xl tracking-tight uppercase font-anton">
+            {t('heading')}
+          </h2>
+          <div className="w-full h-px bg-gray-900 dark:bg-gray-100 mb-8"></div>
+          <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed text-left">
             {t('paragraph')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div>
-            <div className="space-y-8">
-              <div>
-                <div className="flex items-center gap-3 mb-2">
-                  <Mail className="size-5 text-gray-600 dark:text-gray-400" strokeWidth={1.5} />
-                  <span className="text-sm text-gray-500 dark:text-gray-500 tracking-wider">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="space-y-8">
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                <div className="border-2 border-foreground p-2 bg-foreground text-background">
+                  <Mail size={20} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <span className="font-ibm-plex-mono text-xs uppercase tracking-widest text-muted-foreground block">
                     {t('emailLabel')}
                   </span>
+                  <a
+                    href="mailto:alex.chen@example.com"
+                    className="font-space-grotesk hover:underline"
+                  >
+                    alex.chen@example.com
+                  </a>
                 </div>
-                <a
-                  href="mailto:alex.chen@example.com"
-                  className="text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
-                >
-                  alex.chen@example.com
-                </a>
               </div>
 
-              <div>
-                <div className="flex items-center gap-3 mb-2">
-                  <Phone className="size-5 text-gray-600 dark:text-gray-400" strokeWidth={1.5} />
-                  <span className="text-sm text-gray-500 dark:text-gray-500 tracking-wider">
+              <div className="flex items-center gap-4">
+                <div className="border-2 border-foreground p-2 bg-foreground text-background">
+                  <Phone size={20} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <span className="font-ibm-plex-mono text-xs uppercase tracking-widest text-muted-foreground block">
                     {t('phoneLabel')}
                   </span>
+                  <a href="tel:+1234567890" className="font-space-grotesk hover:underline">
+                    +1 (234) 567-890
+                  </a>
                 </div>
-                <a
-                  href="tel:+1234567890"
-                  className="text-gray-900 dark:text-gray-100 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
-                >
-                  +1 (234) 567-890
-                </a>
               </div>
 
-              <div>
-                <div className="flex items-center gap-3 mb-2">
-                  <MapPin className="size-5 text-gray-600 dark:text-gray-400" strokeWidth={1.5} />
-                  <span className="text-sm text-gray-500 dark:text-gray-500 tracking-wider">
+              <div className="flex items-center gap-4">
+                <div className="border-2 border-foreground p-2 bg-foreground text-background">
+                  <MapPin size={20} strokeWidth={1.5} />
+                </div>
+                <div>
+                  <span className="font-ibm-plex-mono text-xs uppercase tracking-widest text-muted-foreground block">
                     {t('locationLabel')}
                   </span>
+                  <span className="font-space-grotesk">San Francisco, CA</span>
                 </div>
-                <p className="text-gray-900 dark:text-gray-100">San Francisco, CA</p>
               </div>
             </div>
 
-            <div className="mt-12 p-8 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
-              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+            <div className="border-2 border-foreground p-6">
+              <p className="font-space-grotesk text-sm text-muted-foreground leading-relaxed">
                 {t('footer')}
               </p>
             </div>
           </div>
 
-          <div>
-            <form className="space-y-6">
-              <div>
-                <Input id="name" placeholder={t('form.name')} required className="h-12" />
-              </div>
-
-              <div>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder={t('form.email')}
-                  required
-                  className="h-12"
-                />
-              </div>
-
-              <div>
-                <Input id="subject" placeholder={t('form.subject')} required className="h-12" />
-              </div>
-
-              <div>
-                <Textarea
-                  id="message"
-                  placeholder={t('form.message')}
-                  rows={6}
-                  required
-                  className="resize-none"
-                />
-              </div>
-
-              <Button type="submit" className="w-full h-12">
-                {t('form.send')}
+          <div className="border-2 border-foreground p-6 bg-background">
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <Input
+                name="name"
+                id="name"
+                placeholder={t('form.name')}
+                required
+                className="h-12 border-2 border-foreground bg-background font-space-grotesk"
+              />
+              <Input
+                name="email"
+                id="email"
+                type="email"
+                placeholder={t('form.email')}
+                required
+                className="h-12 border-2 border-foreground bg-background font-space-grotesk"
+              />
+              <Input
+                name="subject"
+                id="subject"
+                placeholder={t('form.subject')}
+                required
+                className="h-12 border-2 border-foreground bg-background font-space-grotesk"
+              />
+              <Textarea
+                name="message"
+                id="message"
+                placeholder={t('form.message')}
+                rows={5}
+                required
+                className="resize-none border-2 border-foreground bg-background font-space-grotesk"
+              />
+              <Button
+                type="submit"
+                disabled={isLoading}
+                className="w-full h-12 border-2 border-foreground bg-foreground text-background font-anton uppercase tracking-wide hover:bg-background hover:text-foreground disabled:opacity-50"
+              >
+                <Send size={16} className="mr-2" />
+                {isLoading ? 'Sending...' : t('form.send')}
               </Button>
             </form>
           </div>

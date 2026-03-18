@@ -1,38 +1,39 @@
 import { Github, Linkedin, Mail } from 'lucide-react';
+import Logo from './Logo';
 
 export function Footer() {
   return (
-    <footer className="border-t border-gray-200 dark:border-gray-800 py-12 px-4  h-[25vh]">
+    <footer className="border-t-4 border-foreground py-12 px-4 bg-background">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-center md:text-left">
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              © 2026 Alex Chen. All rights reserved.
+          <div className="flex items-center gap-6">
+            <p className="font-ibm-plex-mono text-xs uppercase tracking-widest text-muted-foreground">
+              © {new Date().getFullYear()} guswitch.dev
             </p>
           </div>
 
-          <div className="flex gap-6">
+          <div className="flex items-center gap-2">
             <a
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+              className="border-2 border-foreground p-2 bg-foreground text-background hover:bg-background hover:text-foreground transition-colors"
             >
-              <Github className="size-5" strokeWidth={1.5} />
+              <Github size={18} strokeWidth={1.5} />
             </a>
             <a
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+              className="border-2 border-foreground p-2 bg-foreground text-background hover:bg-background hover:text-foreground transition-colors"
             >
-              <Linkedin className="size-5" strokeWidth={1.5} />
+              <Linkedin size={18} strokeWidth={1.5} />
             </a>
             <a
               href="mailto:alex@example.com"
-              className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+              className="border-2 border-foreground p-2 bg-foreground text-background hover:bg-background hover:text-foreground transition-colors"
             >
-              <Mail className="size-5" strokeWidth={1.5} />
+              <Mail size={18} strokeWidth={1.5} />
             </a>
           </div>
         </div>

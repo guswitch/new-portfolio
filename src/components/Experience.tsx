@@ -1,5 +1,4 @@
 import { Briefcase, GraduationCap } from 'lucide-react';
-
 import { useTranslations } from 'next-intl';
 
 export function Experience() {
@@ -41,46 +40,54 @@ export function Experience() {
   ];
 
   return (
-    <section id="experience" className="min-h-screen py-24 px-4">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-20">
-          <h2 className="mb-6 text-4xl md:text-5xl tracking-tight">{t('heading')}</h2>
-          <div className="w-16 h-px bg-gray-900 dark:bg-gray-100 mx-auto"></div>
+    <section id="experience" className="min-h-screen py-24 px-4 bg-background">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-right my-6">
+          <h2 className="mb-4 text-6xl md:text-7xl tracking-tight uppercase font-anton">
+            {t('heading')}
+          </h2>
+          <div className="w-full h-px bg-gray-900 dark:bg-gray-100 mb-8"></div>
+          <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed text-left">
+            {t('paragraph')}
+          </p>
         </div>
 
-        <div className="space-y-16">
-          {experiences.map((item, index) => (
-            <div
-              key={index}
-              className="relative pl-12 border-l border-gray-300 dark:border-gray-700"
-            >
-              <div className="absolute left-0 top-0 -translate-x-1/2 w-6 h-6  border border-gray-300 dark:border-gray-700 rounded-full flex items-center justify-center">
-                {item.type === 'work' ? (
-                  <Briefcase
-                    className="size-3 text-gray-600 dark:text-gray-400"
-                    strokeWidth={1.5}
-                  />
-                ) : (
-                  <GraduationCap
-                    className="size-3 text-gray-600 dark:text-gray-400"
-                    strokeWidth={1.5}
-                  />
-                )}
-              </div>
-              <div className="mb-3">
-                <div className="flex flex-col md:flex-row md:items-baseline md:justify-between mb-2">
-                  <h3 className="text-xl">{item.title}</h3>
-                  <span className="text-xs text-gray-500 dark:text-gray-500 tracking-wider mt-1">
+        <div className="relative">
+          <div className="space-y-8 border-l-2 border-foreground">
+            {experiences.map((item, index) => (
+              <div
+                key={index}
+                className="border-2 border-l-0 border-foreground p-6 bg-background w-full"
+              >
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                  <div className="flex items-start gap-4">
+                    <div className="border-2 border-foreground p-2 bg-foreground text-background">
+                      {item.type === 'work' ? (
+                        <Briefcase size={20} strokeWidth={1.5} />
+                      ) : (
+                        <GraduationCap size={20} strokeWidth={1.5} />
+                      )}
+                    </div>
+                    <div>
+                      <h3 className="font-anton text-xl md:text-2xl uppercase tracking-tight text-foreground">
+                        {item.title}
+                      </h3>
+                      <p className="font-space-grotesk text-sm text-muted-foreground mt-1">
+                        {item.organization}
+                      </p>
+                    </div>
+                  </div>
+                  <span className="font-ibm-plex-mono text-xs uppercase tracking-widest text-muted-foreground whitespace-nowrap">
                     {item.period}
                   </span>
                 </div>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">{item.organization}</p>
+                <div className="h-0.5 w-8 bg-foreground mb-4"></div>
+                <p className="font-space-grotesk text-sm text-muted-foreground leading-relaxed">
+                  {item.description}
+                </p>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
-                {item.description}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
