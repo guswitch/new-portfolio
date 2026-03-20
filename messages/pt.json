@@ -54,10 +54,30 @@
   },
   "Experience": {
     "heading": "Experiência",
-    "paragraph": "Aqui estão alguns dos meus posts recentes onde compartilho insights e experiências da minha jornada como engenheiro de software"
+    "paragraph": "Experiências ao longo da minha jornada como engenheiro de software",
+    "senior": {
+      "title": "Engenheiro de Software Sênior",
+      "organization": "TechCorp Inc.",
+      "description": "Liderou o desenvolvimento de arquitetura de microsserviços atendendo mais de 1M de usuários. Mentorou desenvolvedores juniores e melhorou a performance do sistema em 40%."
+    },
+    "fullstack": {
+      "title": "Desenvolvedor Full-Stack",
+      "organization": "StartupXYZ",
+      "description": "Construiu e lançou múltiplas funcionalidades para plataforma SaaS. Implementou pipeline CI/CD e reduziu tempo de deploy em 60%."
+    },
+    "developer": {
+      "title": "Desenvolvedor de Software",
+      "organization": "Digital Solutions Ltd.",
+      "description": "Desenvolveu aplicações web responsivas usando React e Node.js. Colaborou com equipe de design para implementar interfaces pixel-perfect."
+    },
+    "bsc": {
+      "title": "Bacharelado em Ciência da Computação",
+      "organization": "Universidade de Tecnologia",
+      "description": "Formado com honras. Focado em engenharia de software, algoritmos e sistemas distribuídos."
+    }
   },
   "Contact": {
-    "heading": "Entrar em Contato",
+    "heading": "Contato",
     "paragraph": "Tem um projeto em mente ou quer colaborar? Fique à vontade para entrar em contato!",
     "emailLabel": "EMAIL",
     "phoneLabel": "TELEFONE",
@@ -72,7 +92,7 @@
     }
   },
   "Posts": {
-    "heading": "Posts em Destaque",
-    "paragraph": "Aqui estão alguns dos meus posts recentes onde compartilho insights e experiências da minha jornada como engenheiro de software"
+    "heading": "Posts",
+    "paragraph": "Aqui estão alguns dos meus posts recentes onde compartilho insights e experiências da minha jornada"
   }
 }

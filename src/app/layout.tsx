@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { SmoothScroll } from '../components/SmoothScroll';
 import '@/src/styles/index.css';
+import { CustomCursor } from '../components/CustomCursor';
 
 export const metadata: Metadata = {
   title: 'Portfolio',
@@ -16,8 +17,9 @@ export default function RootLayout({
   return (
     <html suppressHydrationWarning>
       <body>
-        <SmoothScroll />
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <SmoothScroll>
+          <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        </SmoothScroll>
       </body>
     </html>
   );

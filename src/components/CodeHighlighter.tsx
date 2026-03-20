@@ -18,7 +18,25 @@ export function CodeHighlighter({ html }: { html: string }) {
   return (
     <div
       ref={containerRef}
-      className="font-space-grotesk prose prose-lg text-foreground prose-headings:font-anton prose-headings:uppercase prose-headings:tracking-tight prose-a:text-foreground prose-a:underline prose-a:underline-offset-4 prose-code:font-ibm-plex-mono prose-code:bg-muted prose-code:px-1 prose-code:py-0.5 prose-code:before:content-none prose-code:after:content-none"
+      className="
+      font-space-grotesk prose 
+      prose-lg 
+      dark:prose-h2:text-white
+      dark:prose-code:text-white
+      dark:prose-strong:text-white
+      text-foreground
+      prose-headings:font-anton 
+      prose-headings:uppercase 
+      prose-headings:tracking-tight 
+      prose-a:text-foreground 
+      prose-a:underline 
+      prose-a:underline-offset-4 
+      prose-code:font-ibm-plex-mono 
+      prose-code:bg-muted 
+      prose-code:px-1 
+      prose-code:py-0.5 
+      prose-code:before:content-none 
+      prose-code:after:content-none"
       dangerouslySetInnerHTML={{ __html: html }}
     />
   );

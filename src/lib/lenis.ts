@@ -7,12 +7,12 @@ export function initLenis() {
 
   if (!lenis) {
     lenis = new Lenis({
-      duration: 0.9,
-      smoothWheel: true,
-      wheelMultiplier: 2,
-      touchMultiplier: 1.4,
-      infinite: false,
+      duration: 5,
       easing: (t: number) => 1 - Math.pow(1 - t, 4),
+      wheelMultiplier: 0.1,
+      touchMultiplier: 0.1,
+      infinite: false,
+      anchors: true,
     });
 
     function raf(time: number) {

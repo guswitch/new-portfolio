@@ -35,6 +35,7 @@ export default function Logo() {
 
   return (
     <div className="flex items-center">
+      <span className="font-bold text-blue-500 dark:text-green-300 mr-2"> {'>'} </span>
       <h1 className="text-2xl font-thin tracking-tight font-space-grotesk">
         guswitch
         <span className="font-bold">{displayed}</span>

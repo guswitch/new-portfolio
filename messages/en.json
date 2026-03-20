@@ -54,7 +54,27 @@
   },
   "Experience": {
     "heading": "Experience",
-    "paragraph": "Here are some of my recent blog posts where I share insights and experiences from my journey as a software engineer"
+    "paragraph": "Experience throughout my journey as a software engineer",
+    "senior": {
+      "title": "Senior Software Engineer",
+      "organization": "TechCorp Inc.",
+      "description": "Lead development of microservices architecture serving 1M+ users. Mentored junior developers and improved system performance by 40%."
+    },
+    "fullstack": {
+      "title": "Full-Stack Developer",
+      "organization": "StartupXYZ",
+      "description": "Built and shipped multiple features for SaaS platform. Implemented CI/CD pipeline and reduced deployment time by 60%."
+    },
+    "developer": {
+      "title": "Software Developer",
+      "organization": "Digital Solutions Ltd.",
+      "description": "Developed responsive web applications using React and Node.js. Collaborated with design team to implement pixel-perfect UIs."
+    },
+    "bsc": {
+      "title": "B.S. Computer Science",
+      "organization": "University of Technology",
+      "description": "Graduated with honors. Focused on software engineering, algorithms, and distributed systems."
+    }
   },
   "Contact": {
     "heading": "Get In Touch",
@@ -73,6 +93,6 @@
   },
   "Posts": {
     "heading": "Featured Posts",
-    "paragraph": "Here are some of my recent blog posts where I share insights and experiences from my journey as a software engineer"
+    "paragraph": "Here are some of my recent blog posts where I share insights and experiences from my journey"
   }
 }

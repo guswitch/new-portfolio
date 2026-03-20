@@ -1,12 +1,12 @@
 'use client';
 
 import { useEffect } from 'react';
-import { initLenis } from '../lib/lenis';
+import { initLenis } from '@/src/lib/lenis';
 
-export function SmoothScroll() {
+export function SmoothScroll({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     initLenis();
   }, []);
 
-  return null;
+  return children;
 }

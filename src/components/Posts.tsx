@@ -22,11 +22,11 @@ export function Posts() {
     <section id="posts" className="min-h-screen py-24 px-4 bg-white dark:bg-black snap-start">
       <div className="max-w-5xl mx-auto">
         <div className="mb-16">
-          <h2 className="font-anton text-4xl md:text-6xl uppercase tracking-tight text-foreground">
+          <h2 className="mb-4 text-6xl md:text-7xl tracking-tight uppercase font-anton">
             {t('heading')}
           </h2>
-          <div className="mt-4 h-1 w-24 bg-foreground"></div>
-          <p className="mt-6 font-space-grotesk text-muted-foreground leading-relaxed">
+          <div className="w-full h-px bg-gray-900 dark:bg-gray-100 mb-8"></div>
+          <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
             {t('paragraph')}
           </p>
         </div>
@@ -39,10 +39,10 @@ export function Posts() {
             ))}
           </CarouselContent>
           <div className="flex items-center justify-between mt-10">
-            <CarouselPrevious className="relative static size-12 rounded-none border-2 border-foreground bg-foreground text-background hover:bg-background hover:text-foreground disabled:bg-muted disabled:text-muted-foreground disabled:border-muted">
+            <CarouselPrevious className="static size-12 rounded-none border-2 border-foreground bg-foreground text-white hover:bg-background hover:text-foreground disabled:bg-muted disabled:text-muted-foreground disabled:border-muted">
               <ChevronLeft size={20} />
             </CarouselPrevious>
-            <CarouselNext className="relative static size-12 rounded-none border-2 border-foreground bg-foreground text-background hover:bg-background hover:text-foreground disabled:bg-muted disabled:text-muted-foreground disabled:border-muted">
+            <CarouselNext className="static size-12 rounded-none border-2 border-foreground bg-foreground text-white hover:bg-background hover:text-foreground disabled:bg-muted disabled:text-muted-foreground disabled:border-muted">
               <ChevronRight size={20} />
             </CarouselNext>
           </div>

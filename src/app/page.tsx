@@ -10,11 +10,12 @@ import { Experience } from '@/src/components/Experience';
 import { Footer } from '@/src/components/Footer';
 import { Header } from '@/src/components/Header';
 import { Posts } from '@/src/components/Posts';
-import SectionNav from '@/src/components/SectionNav';
+import { CustomCursor } from '../components/CustomCursor';
 
 export default async function Home() {
   return (
-    <>
+    <div className="custom-cursor-page">
+      <CustomCursor />
       <Header />
       <main className="pt-20">
         <Hero />
@@ -25,7 +26,6 @@ export default async function Home() {
         <Contact />
       </main>
       <Footer />
-      <SectionNav />
-    </>
+    </div>
   );
 }

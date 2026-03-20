@@ -1,13 +1,12 @@
 import Link from 'next/link';
-import { format, parseISO } from 'date-fns';
 import { allPosts } from 'contentlayer/generated';
 import { notFound } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import Logo from '@/src/components/Logo';
 import { ThemeToggle } from '@/src/components/ThemeToggle';
-import { LanguageSwitcher } from '@/src/components/LanguageSwitcher';
 import { CodeHighlighter } from '@/src/components/CodeHighlighter';
 import { ReadingProgress } from '@/src/components/ReadingProgress';
+import { PostDate } from './PostDate';
 
 export const generateStaticParams = async () =>
   allPosts.map((post) => ({ slug: post._raw.flattenedPath })).filter((p) => p.slug);
@@ -35,7 +34,6 @@ const PostLayout = async ({ params }: { params: Promise<{ slug: string }> }) => 
               <Logo />
             </Link>
             <div className="flex items-center gap-4">
-              <LanguageSwitcher />
               <ThemeToggle />
             </div>
           </div>
@@ -43,28 +41,16 @@ const PostLayout = async ({ params }: { params: Promise<{ slug: string }> }) => 
       </header>
 
       <main className="min-h-screen bg-background pt-32">
-        <Link
-          href="/"
-          className="fixed left-4 top-1/2 z-50 hidden border-2 border-foreground bg-foreground p-3 text-background hover:bg-background hover:text-foreground md:left-16 lg:block"
-        >
-          <ArrowLeft size={24} />
-        </Link>
-
-        <article className="mx-auto max-w-[680px] px-6 pb-16">
-          <header className="mb-12 border-b-4 border-foreground pb-8">
+        <article className="mx-auto max-w-170 px-6 pb-16">
+          <header className="mb-12 border-b border-foreground pb-8">
             <Link
               href="/"
-              className="mb-4 inline-flex items-center gap-2 border-2 border-foreground bg-foreground px-3 py-1 text-sm text-background hover:bg-background hover:text-foreground md:hidden"
+              className="mb-4 inline-flex items-center gap-2 border-2 border-foreground bg-foreground px-3 py-1 text-sm text-background hover:bg-background hover:text-foreground"
             >
               <ArrowLeft size={16} />
               <span className="font-ibm-plex-mono text-xs uppercase">Back</span>
             </Link>
-            <time
-              dateTime={post.date}
-              className="mb-4 block font-ibm-plex-mono text-xs uppercase tracking-widest text-muted-foreground"
-            >
-              {format(parseISO(post.date), 'MMMM d, yyyy')}
-            </time>
+            <PostDate date={post.date} />
             <h1 className="font-anton text-4xl uppercase leading-[0.9] tracking-tight text-foreground md:text-5xl">
               {post.title}
             </h1>

@@ -1,7 +1,9 @@
-import { Github, Linkedin, Mail, ArrowDown } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from './ui/button';
 import { useT } from '../utils/translations';
 import MorphBackground from './MorphBackground';
+import { CONTACT_INFO } from '@/src/lib/contact';
+import { ParallaxSection } from './ParalaxSection';
 
 export function Hero() {
   const t = useT('Hero');
@@ -12,7 +14,7 @@ export function Hero() {
       className="min-h-screen px-4 py-24 relative flex items-center justify-center"
     >
       <MorphBackground />
-      <div className="flex-col items-center justify-center relative max-w-5xl mx-auto">
+      <ParallaxSection>
         <div className="w-full">
           <div className="w-32 md:w-72 h-px bg-gray-900 dark:bg-gray-100 mb-8"></div>
           <h1 className="mb-8 text-8xl tracking-tight font-anton uppercase">{t('name')}</h1>
@@ -23,7 +25,7 @@ export function Hero() {
         <div className="w-full grid grid-flow-row md:grid-flow-col justify-between mt-8">
           <div className="flex gap-3">
             <a
-              href="https://github.com"
+              href={CONTACT_INFO.github}
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
@@ -31,7 +33,7 @@ export function Hero() {
               <Github className="size-5" strokeWidth={1.5} />
             </a>
             <a
-              href="https://linkedin.com"
+              href={CONTACT_INFO.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
@@ -39,7 +41,7 @@ export function Hero() {
               <Linkedin className="size-5" strokeWidth={1.5} />
             </a>
             <a
-              href="mailto:alex@example.com"
+              href={`mailto:${CONTACT_INFO.email}`}
               className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
             >
               <Mail className="size-5" strokeWidth={1.5} />
@@ -61,7 +63,7 @@ export function Hero() {
             </Button>
           </div>
         </div>
-      </div>
+      </ParallaxSection>
     </section>
   );
 }
