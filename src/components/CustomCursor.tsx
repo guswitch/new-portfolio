@@ -6,8 +6,13 @@ import { useEffect, useState } from 'react';
 export function CustomCursor() {
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [hover, setHover] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
+    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    setIsTouchDevice(isTouch);
+    if (isTouch) return;
+
     const move = (e: MouseEvent) => {
       setPos({ x: e.clientX, y: e.clientY });
     };
@@ -27,6 +32,8 @@ export function CustomCursor() {
     };
   }, []);
 
+  if (isTouchDevice) return null;
+
   return (
     <motion.div
       animate={{
@@ -39,7 +46,7 @@ export function CustomCursor() {
         stiffness: 300,
         damping: 25,
       }}
-      className="fixed top-0 left-0 w-4 h-4 border border-black dark:border-white pointer-events-none z-[9999] dark:mix-blend-difference"
+      className="fixed top-0 left-0 w-4 h-4 border border-black dark:border-white pointer-events-none z-[9999] dark:mix-blend-difference hidden md:block"
     />
   );
 }
