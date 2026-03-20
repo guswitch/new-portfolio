@@ -7,10 +7,10 @@ export function initLenis() {
 
   if (!lenis) {
     lenis = new Lenis({
-      duration: 5,
+      duration: 1.8,
       easing: (t: number) => 1 - Math.pow(1 - t, 4),
-      wheelMultiplier: 0.1,
-      touchMultiplier: 0.1,
+      wheelMultiplier: 1,
+      touchMultiplier: 1,
       infinite: false,
       anchors: true,
     });
