@@ -14,8 +14,9 @@ import { CustomCursor } from '../components/CustomCursor';
 
 export default async function Home() {
   return (
-    <div className="custom-cursor-page">
-      <CustomCursor />
+    // add class custom-cursor-page se quiser retirar o cursor padrão do navegador"
+    <div>
+      {/* <CustomCursor /> */}
       <Header />
       <main className="pt-20">
         <Hero />

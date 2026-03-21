@@ -44,36 +44,84 @@
       "backend": "Backend",
       "devops": "DevOps & Ferramentas",
       "other": "Outros"
-    }
+    },
+    "fullstack": "Desenvolvimento Full Stack",
+    "databases": "Gestão de Dados & Bancos de Dados",
+    "devops": "DevOps & Infraestrutura",
+    "testing": "Testes",
+    "softwareEngineering": "Engenharia de Software",
+    "ai": "Inteligência Artificial"
   },
   "Projects": {
     "heading": "Projetos",
     "paragraph": "Aqui estão alguns dos meus projetos recentes que mostram minhas habilidades e experiência",
     "viewCode": "Ver Código",
-    "liveDemo": "Demo Ao Vivo"
+    "liveDemo": "Demo Ao Vivo",
+    "items": {
+      "stemcraft": {
+        "title": "StemCraft",
+        "description": "Ferramenta com IA para separação de stems de música, com funcionalidades planejadas incluindo detecção de BPM e tonalidade. Em desenvolvimento, focada em criar um fluxo de trabalho rápido e acessível para produtores de música.",
+        "tech": ["Next.js", "Node.js", "Demucs", "Tailwind"]
+      },
+      "markdown-slides": {
+        "title": "Gerador de Slides em Markdown",
+        "description": "Ferramenta para criar slides de apresentação diretamente do Markdown, permitindo criação de conteúdo rápida e estruturada com um fluxo de trabalho amigável para desenvolvedores.",
+        "tech": ["Next.js", "Marpit", "Tailwind"]
+      },
+      "digital-health": {
+        "title": "Digital Health",
+        "description": "Sistema em tempo real para monitoramento e controle de máquinas de MRI, combinando APIs de backend e interfaces mobile com comunicação ao vivo usando WebSockets.",
+        "tech": ["Node.js", "Express", "Socket.io", "React Native"]
+      },
+      "soundcloud-redesign": {
+        "title": "Redesign do SoundCloud",
+        "description": "Redesign frontend do SoundCloud focado em melhorar a experiência do usuário e estrutura visual, mantendo as interações principais da plataforma de música.",
+        "tech": ["React", "Sass"]
+      },
+      "financial-system": {
+        "title": "Sistema de Gestão Financeira",
+        "description": "Aplicação full-stack para gestão de contas e finanças, desenvolvido como projeto acadêmico com APIs estruturadas e interface web responsiva.",
+        "tech": ["Node.js", "Express", "React"]
+      },
+      "tournament-manager": {
+        "title": "G4 Gerenciador de Torneios",
+        "description": "Aplicativo mobile para gerenciar torneios, incluindo organização de partidas e atualizações em tempo real, construído com foco em usabilidade e performance.",
+        "tech": ["Angular", "Ionic", "Firebase"]
+      }
+    }
   },
   "Experience": {
     "heading": "Experiência",
-    "paragraph": "Experiências ao longo da minha jornada como engenheiro de software",
-    "senior": {
-      "title": "Engenheiro de Software Sênior",
-      "organization": "TechCorp Inc.",
-      "description": "Liderou o desenvolvimento de arquitetura de microsserviços atendendo mais de 1M de usuários. Mentorou desenvolvedores juniores e melhorou a performance do sistema em 40%."
-    },
-    "fullstack": {
+    "paragraph": "Experiência ao longo da minha jornada como engenheiro de software",
+    "mid-again": {
       "title": "Desenvolvedor Full-Stack",
-      "organization": "StartupXYZ",
-      "description": "Construiu e lançou múltiplas funcionalidades para plataforma SaaS. Implementou pipeline CI/CD e reduziu tempo de deploy em 60%."
+      "organization": "Fatecoins",
+      "period": "Jun 2023 - Mar 2024",
+      "description": "Mantive e evoluí a plataforma A12, uma das maiores plataformas digitais católicas do Brasil. Focado em correção de bugs, desenvolvimento de funcionalidades e estabilidade do sistema em experiências web e mobile, lidando com alta demanda de usuários e questões críticas de produção."
     },
-    "developer": {
-      "title": "Desenvolvedor de Software",
-      "organization": "Digital Solutions Ltd.",
-      "description": "Desenvolveu aplicações web responsivas usando React e Node.js. Colaborou com equipe de design para implementar interfaces pixel-perfect."
+    "mid": {
+      "title": "Desenvolvedor Full-Stack",
+      "organization": "Valgroup",
+      "period": "Jan 2023 - Jul 2023",
+      "description": "Desenvolvi e mantive sistemas internos globais usados em várias regiões. Construí APIs, criei e mantive interfaces web, e realizei operações de banco de dados. Melhorei a confiabilidade do sistema corrigindo problemas legados e implementando testes automatizados."
     },
-    "bsc": {
-      "title": "Bacharelado em Ciência da Computação",
-      "organization": "Universidade de Tecnologia",
-      "description": "Formado com honras. Focado em engenharia de software, algoritmos e sistemas distribuídos."
+    "junior-again": {
+      "title": "Desenvolvedor Frontend Júnior",
+      "organization": "Chezi",
+      "period": "Nov 2021 - Ago 2022",
+      "description": "Trabalhei junto com designers de UX para transformar protótipos em interfaces web escaláveis. Construí e mantive funcionalidades frontend,implementei testes automatizados, e contribuí para novos produtos focados em conteúdo. Colaborei com equipes de backend e trabalhei com um sistema de design estruturado para suportar ferramentas internas de desenvolvimento."
+    },
+    "junior": {
+      "title": "Desenvolvedor Frontend Júnior",
+      "organization": "Fatecoins",
+      "period": "Fev 2020 - Nov 2021",
+      "description": "Desenvolvi um sistema web de gerenciamento de contas, focando em interfaces responsivas e usabilidade. Implementei testes automatizados de UI para garantir confiabilidade e colaborei diretamente com desenvolvedores backend para integrar APIs e entregar funcionalidades end-to-end."
+    },
+    "graduation": {
+      "title": "Graduado em Gestão da Tecnologia da Informação",
+      "organization": "FATEC (Faculdade de Tecnologia do Estado de São Paulo)",
+      "period": "2019 - 2021",
+      "description": "Completei a faculdade focada em sistemas de informação e gestão de tecnologia. O projeto final consistiu no desenvolvimento de um sistema de gerenciamento de facilities projetado para instituições FATEC, com o objetivo de melhorar a eficiência operacional e organização de recursos."
     }
   },
   "Contact": {
@@ -88,7 +136,11 @@
       "email": "Email",
       "subject": "Assunto",
       "message": "Mensagem",
-      "send": "Enviar Mensagem"
+      "send": "Enviar Mensagem",
+      "success": "Mensagem enviada com sucesso!",
+      "error": "Falha ao enviar mensagem. Tente novamente.",
+      "sent": "Mensagem Enviada!",
+      "sending": "Enviando Mensagem..."
     }
   },
   "Posts": {

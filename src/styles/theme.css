@@ -183,10 +183,35 @@
     line-height: 1.5;
   }
 
-  @media (hover: hover) and (pointer: fine) {
+  /* @media (hover: hover) and (pointer: fine) {
     .custom-cursor-page,
     .custom-cursor-page * {
       cursor: none !important;
     }
+  } */
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #171717;
+    border-radius: 0;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: #fafafa;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #404040;
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: #d4d4d4;
   }
 }

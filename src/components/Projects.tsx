@@ -5,11 +5,22 @@ import { useState } from 'react';
 import { Project } from '../types/project';
 import { ProjectPopover } from './ProjectPopover';
 import { ProjectCard } from './ProjectCard';
-import { projects } from '../lib/projects';
+import { projects } from '../const/projects';
 
 export function Projects() {
   const t = useTranslations('Projects');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const translatedProjects: Project[] = projects.map((p) => ({
+    id: p.id,
+    key: p.key,
+    title: t(`items.${p.key}.title`),
+    description: t(`items.${p.key}.description`),
+    tech: t.raw(`items.${p.key}.tech`) as string[],
+    github: p.github,
+    live: p.live,
+    status: p.status,
+  }));
 
   return (
     <section id="projects" className="min-h-screen py-24 px-4">
@@ -26,7 +37,7 @@ export function Projects() {
 
         <div className="space-y-24">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project) => (
+            {translatedProjects.map((project) => (
               <ProjectCard key={project.id} project={project} onOpen={setSelectedProject} />
             ))}
           </div>

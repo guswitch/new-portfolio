@@ -2,7 +2,7 @@ import { Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from './ui/button';
 import { useT } from '../utils/translations';
 import MorphBackground from './MorphBackground';
-import { CONTACT_INFO } from '@/src/lib/contact';
+import { CONTACT_INFO } from '@/src/const/contact';
 import { ParallaxSection } from './ParalaxSection';
 
 export function Hero() {

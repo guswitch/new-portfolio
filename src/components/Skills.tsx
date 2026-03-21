@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Minus, Plus } from 'lucide-react';
 import { useT } from '../utils/translations';
-import { skills } from '../lib/skills';
+import { skills } from '../const/skills';
 
 export function Skills() {
   const t = useT('Skills');
@@ -51,7 +51,7 @@ export function Skills() {
                         {/* <Plus className="size-7" /> */}
                       </motion.span>
                       <h3 className="text-xl font-semibold tracking-wide uppercase">
-                        {skill.title}
+                        {t(skill.key)}
                       </h3>
                     </div>
                   </button>

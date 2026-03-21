@@ -7,15 +7,17 @@ import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { useTranslations } from 'next-intl';
 import { toast } from 'sonner';
-import { CONTACT_INFO } from '@/src/lib/contact';
+import { CONTACT_INFO } from '@/src/const/contact';
 
 export function Contact() {
   const t = useTranslations('Contact');
   const [isLoading, setIsLoading] = useState(false);
+  const [isSent, setIsSent] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
+    setIsSent(false);
 
     const formData = new FormData(e.currentTarget);
     const data = {
@@ -34,10 +36,11 @@ export function Contact() {
 
       if (!response.ok) throw new Error('Failed to send');
 
-      toast.success('Message sent successfully!');
+      toast.success(t('form.success'));
       e.currentTarget.reset();
+      setIsSent(true);
     } catch {
-      toast.error('Failed to send message. Please try again.');
+      toast.error(t('form.error'));
     } finally {
       setIsLoading(false);
     }
@@ -151,8 +154,13 @@ export function Contact() {
                 disabled={isLoading}
                 className="w-full h-12 font-ibm-plex-mono uppercase tracking-wide cursor-pointer"
               >
-                <Send size={16} className="mr-2" />
-                {isLoading ? 'Sending...' : t('form.send')}
+                {isLoading && t('form.sending')} {isSent && t('form.sent')}{' '}
+                {!isSent && !isLoading && (
+                  <>
+                    <Send size={16} className="mr-2" />
+                    {t('form.send')}
+                  </>
+                )}
               </Button>
             </form>
           </div>

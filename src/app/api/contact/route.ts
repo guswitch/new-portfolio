@@ -1,22 +1,15 @@
 import { NextResponse } from 'next/server';
+import { Resend } from 'resend';
 
-async function getAccessToken() {
-  const res = await fetch(
-    `https://login.microsoftonline.com/${process.env.AZURE_TENANT_ID}/oauth2/v2.0/token`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams({
-        client_id: process.env.AZURE_CLIENT_ID!,
-        client_secret: process.env.AZURE_CLIENT_SECRET!,
-        scope: 'https://graph.microsoft.com/.default',
-        grant_type: 'client_credentials',
-      }),
-    }
-  );
-
-  const data = await res.json();
-  return data.access_token;
+function escapeHtml(text: string): string {
+  const map: Record<string, string> = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;',
+  };
+  return text.replace(/[&<>"']/g, (char) => map[char]);
 }
 
 export async function POST(request: Request) {
@@ -27,47 +20,27 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'All fields are required' }, { status: 400 });
     }
 
-    const accessToken = await getAccessToken();
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
-    const res = await fetch(process.env.GRAPH_ENDPOINT!, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        message: {
-          subject: `Portfolio Contact: ${subject}`,
-          body: {
-            contentType: 'HTML',
-            content: `
-              <h2>New Contact Form Submission</h2>
-              <p><strong>Name:</strong> ${name}</p>
-              <p><strong>Email:</strong> ${email}</p>
-              <p><strong>Subject:</strong> ${subject}</p>
-              <p><strong>Message:</strong></p>
-              <p>${message}</p>
-            `,
-          },
-          toRecipients: [
-            {
-              emailAddress: {
-                address: process.env.EMAIL_TO,
-              },
-            },
-          ],
-        },
-        saveToSentItems: 'true',
-      }),
+    await resend.emails.send({
+      from: 'onboarding@resend.dev',
+      to: 'gustaavohenrique@hotmail.com',
+      replyTo: email,
+      subject: `[Portfolio] ${subject}`,
+      html: `
+        <h2>Name</h2>
+        <p>${escapeHtml(name)}</p>
+        <h2>Email</h2>
+        <p>${escapeHtml(email)}</p>
+        <h2>Subject</h2>
+        <p>${escapeHtml(subject)}</p>
+        <h2>Message</h2>
+        <p>${escapeHtml(message).replace(/\n/g, '<br>')}</p>
+      `,
     });
 
-    if (!res.ok) {
-      throw new Error('Failed to send email');
-    }
-
     return NextResponse.json({ success: true });
-  } catch (error) {
-    console.error('Email error:', error);
+  } catch {
     return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
   }
 }

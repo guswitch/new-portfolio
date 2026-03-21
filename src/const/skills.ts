@@ -1,27 +1,27 @@
 export const skills = [
   {
-    title: 'Full Stack Development',
+    key: 'fullstack',
     content:
       'TypeScript, JavaScript, React, Next.js, Node.js, NestJS, REST APIs, GraphQL, HTML, CSS / Sass',
   },
   {
-    title: 'Data Management & Databases',
+    key: 'databases',
     content: 'MySQL, NoSQL, Firebase, PostgreSQL, Redis',
   },
   {
-    title: 'DevOps & Infrastructure',
+    key: 'devops',
     content: 'Docker, Vercel, Azure, Cloud Services',
   },
   {
-    title: 'Testing',
+    key: 'testing',
     content: 'Jest, Cypress',
   },
   {
-    title: 'Software Engineering',
+    key: 'softwareEngineering',
     content: 'Clean Code, OOP, Agile Methodologies, Code Review, Technical Architecture',
   },
   {
-    title: 'Artificial Intelligence',
+    key: 'ai',
     content:
       'Machine Learning Integration, AI APIs (OpenAI / etc), Audio Processing, AI-Assisted Development',
   },

@@ -1,6 +1,6 @@
 import { Github, Linkedin, Mail } from 'lucide-react';
 import Logo from './Logo';
-import { CONTACT_INFO } from '@/src/lib/contact';
+import { CONTACT_INFO } from '@/src/const/contact';
 
 export function Footer() {
   return (

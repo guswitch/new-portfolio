@@ -2,15 +2,7 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect } from 'react';
-
-type Project = {
-  id: number;
-  title: string;
-  description: string;
-  tech: string[];
-  github?: string;
-  live?: string;
-};
+import { Project } from '../types/project';
 
 type ProjectPopoverProps = {
   project: Project;
@@ -75,7 +67,7 @@ export function ProjectPopover({ project, open, setOpen }: ProjectPopoverProps) 
                 </a>
               )}
 
-              {project.live && (
+              {/* {project.live && (
                 <a
                   href={project.live}
                   target="_blank"
@@ -83,7 +75,7 @@ export function ProjectPopover({ project, open, setOpen }: ProjectPopoverProps) 
                 >
                   Live
                 </a>
-              )}
+              )} */}
             </div>
           </motion.div>
         </motion.div>

@@ -1,6 +1,6 @@
 import { Briefcase, GraduationCap } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { experiences } from '@/src/lib/expiriences';
+import { experiences } from '@/src/const/expiriences';
 
 export function Experience() {
   const t = useTranslations('Experience');
@@ -35,7 +35,7 @@ export function Experience() {
                       )}
                     </div>
                     <div>
-                      <h3 className="font-anton text-xl md:text-2xl uppercase tracking-tight text-foreground">
+                      <h3 className="font-anton text-xl md:text-2xl uppercase tracking-normal text-foreground">
                         {t(`${item.key}.title`)}
                       </h3>
                       <p className="font-space-grotesk text-sm text-muted-foreground mt-1">
@@ -44,7 +44,7 @@ export function Experience() {
                     </div>
                   </div>
                   <span className="font-ibm-plex-mono text-xs uppercase tracking-widest text-muted-foreground whitespace-nowrap">
-                    {item.period}
+                    {t(`${item.key}.period`)}
                   </span>
                 </div>
                 <div className="h-0.5 w-8 bg-foreground mb-4"></div>

@@ -44,36 +44,84 @@
       "backend": "Backend",
       "devops": "DevOps & Tools",
       "other": "Other"
-    }
+    },
+    "fullstack": "Full Stack Development",
+    "databases": "Data Management & Databases",
+    "devops": "DevOps & Infrastructure",
+    "testing": "Testing",
+    "softwareEngineering": "Software Engineering",
+    "ai": "Artificial Intelligence"
   },
   "Projects": {
     "heading": "Projects",
     "paragraph": "Here are some of my recent projects that showcase my skills and experience",
     "viewCode": "View Code",
-    "liveDemo": "Live Demo"
+    "liveDemo": "Live Demo",
+    "items": {
+      "stemcraft": {
+        "title": "StemCraft",
+        "description": "AI-powered tool for separating music stems, with planned features including BPM and key detection. Currently under development, focused on building a fast and accessible web-based workflow for music producers.",
+        "tech": ["Next.js", "Node.js", "Demucs", "Tailwind"]
+      },
+      "markdown-slides": {
+        "title": "Markdown Slides Generator",
+        "description": "Tool for creating presentation slides directly from Markdown, enabling fast and structured content creation with a developer-friendly workflow.",
+        "tech": ["Next.js", "Marpit", "Tailwind"]
+      },
+      "digital-health": {
+        "title": "Digital Health",
+        "description": "Real-time system for monitoring and controlling MRI machines, combining backend APIs and mobile interfaces with live communication using WebSockets.",
+        "tech": ["Node.js", "Express", "Socket.io", "React Native"]
+      },
+      "soundcloud-redesign": {
+        "title": "SoundCloud Redesign",
+        "description": "Frontend redesign of SoundCloud focused on improving user experience and visual structure while maintaining core music platform interactions.",
+        "tech": ["React", "Sass"]
+      },
+      "financial-system": {
+        "title": "Financial Management System",
+        "description": "Full-stack application for account and financial management, developed as an academic project with structured APIs and responsive web interface.",
+        "tech": ["Node.js", "Express", "React"]
+      },
+      "tournament-manager": {
+        "title": "G4 Tournament Manager",
+        "description": "Mobile application for managing tournaments, including match organization and real-time updates, built with a focus on usability and performance.",
+        "tech": ["Angular", "Ionic", "Firebase"]
+      }
+    }
   },
   "Experience": {
     "heading": "Experience",
     "paragraph": "Experience throughout my journey as a software engineer",
-    "senior": {
-      "title": "Senior Software Engineer",
-      "organization": "TechCorp Inc.",
-      "description": "Lead development of microservices architecture serving 1M+ users. Mentored junior developers and improved system performance by 40%."
-    },
-    "fullstack": {
+    "mid-again": {
       "title": "Full-Stack Developer",
-      "organization": "StartupXYZ",
-      "description": "Built and shipped multiple features for SaaS platform. Implemented CI/CD pipeline and reduced deployment time by 60%."
+      "organization": "Fatecoins",
+      "period": "Jun 2023 - Mar 2024",
+      "description": "Maintained and evolved the A12 platform, one of Brazil’s largest Catholic digital platforms. Focused on bug fixing, feature development, and system stability across web and mobile experiences, handling high user demand and critical production issues."
     },
-    "developer": {
-      "title": "Software Developer",
-      "organization": "Digital Solutions Ltd.",
-      "description": "Developed responsive web applications using React and Node.js. Collaborated with design team to implement pixel-perfect UIs."
+    "mid": {
+      "title": "Full-Stack Developer",
+      "organization": "Valgroup",
+      "period": "Jan 2023 - Jul 2023",
+      "description": "Developed and maintained internal global systems used across multiple regions. Built APIs, created and maintained web interfaces, and handled database operations. Improved system reliability by fixing legacy issues and implementing automated testing."
     },
-    "bsc": {
-      "title": "B.S. Computer Science",
-      "organization": "University of Technology",
-      "description": "Graduated with honors. Focused on software engineering, algorithms, and distributed systems."
+    "junior-again": {
+      "title": "Frontend Developer Junior",
+      "organization": "Chezi",
+      "period": "Nov 2021 - Aug 2022",
+      "description": "DWorked alongside UX designers to translate prototypes into scalable web interfaces. Built and maintained frontend features, implemented automated tests, and contributed to new content-driven products. Collaborated with backend teams and worked with a structured design system to support internal developer tooling."
+    },
+    "junior": {
+      "title": "Frontend Developer Junior",
+      "organization": "Fatecoins",
+      "period": "Feb 2020 - Nov 2021",
+      "description": "Developed a web-based account management system, focusing on responsive interfaces and usability. Implemented automated UI tests to ensure reliability and collaborated closely with backend developers to integrate APIs and deliver end-to-end features."
+    },
+    "graduation": {
+      "title": "Graduated in Information Technology Management",
+      "organization": "FATEC (Faculdade de Tecnologia do Estado de São Paulo)",
+      "period": "2019 - 2021",
+      "description": "Completed a degree focused on information systems and technology management. Final project consisted of developing a facilities management system designed for regional FATEC institutions, aiming to improve operational efficiency and resource organization."
     }
   },
   "Contact": {
@@ -88,7 +136,11 @@
       "email": "Email",
       "subject": "Subject",
       "message": "Message",
-      "send": "Send Message"
+      "send": "Send Message",
+      "success": "Message sent successfully!",
+      "error": "Failed to send message. Please try again.",
+      "sent": "Message Sent!",
+      "sending": "Sending Message..."
     }
   },
   "Posts": {
